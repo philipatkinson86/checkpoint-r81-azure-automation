@@ -1,0 +1,18 @@
+- hosts: 20.188.253.20
+  gather_facts: false
+  vars_files:
+    - vars.yml
+      #  connection: httpapi
+
+  tasks:
+
+    - name: Configure CME via run-script module / Mgmt_CLI - step 1
+      raw: autoprov_cfg -f init Azure -mn r81mgmt -tn Azure_VisualStudio_R81 -otp 123456789 -ver R81 -po Standard -cn Azure -sb <REDACTED> -at <REDACTED> -aci <REDACTED> -acs <REDACTED>
+
+    - name: Pause for 30 secs to allow CME to restart
+      pause:
+        seconds: 30
+
+    - name: Configure CME via run-script module / Mgmt_CLI - step 2
+      raw: autoprov_cfg -f set template -tn Azure_VisualStudio_R81 -av -ab -ips
+
