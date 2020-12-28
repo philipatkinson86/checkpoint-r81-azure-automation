@@ -19,6 +19,6 @@ Here are a list of the enhancements and changes made in this project:
 * Updated secureme.sh shell script to cater for the above changes including additional sed command to replace IP after 1st tf apply
 
 ## Further Notes
-* ensure to add all required Azure IDs in ansible/cme-config.yml where marked as REDACTED
-* ensure to use R81 version of SmartConsole when accessing Mgmt server manaully - can be downloaded from https://supportcenter.checkpoint.com/supportcenter/portal?action=portlets.DCFileAction&eventSubmit_doGetdcdetails=&fileid=111186
-* condition observed sometimes where 1 of the Azure GW instances is corrupt and unable to have a policy pushed to it, the workaround for this is to delete the image and allow the scale set to re-deploy a new one - I have added some code at the bottom of the secureme.sh to automate this if required via the Azure CLI - this is commented out currently as the affected instance ID appears to be random
+* Ensure to add all required Azure IDs in ansible/cme-config.yml where marked as REDACTED
+* Ensure to use R81 version of SmartConsole when accessing Mgmt server manaully - can be downloaded from https://supportcenter.checkpoint.com/supportcenter/portal?action=portlets.DCFileAction&eventSubmit_doGetdcdetails=&fileid=111186
+* Condition observed sometimes where 1 of the Azure GW instances is corrupt and unable to have a policy pushed to it, the workaround for this is to delete the image and allow the scale set to re-deploy a new one - I have added some code at the bottom of the secureme.sh to automate this if required via the Azure CLI - this is commented out currently as the affected instance ID appears to be random
